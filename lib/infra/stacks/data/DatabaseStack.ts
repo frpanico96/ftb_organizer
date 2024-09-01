@@ -11,9 +11,9 @@ import { Construct } from "constructs";
 
 export class DatabaseStack extends Stack{
 
-  public readonly eventDb: ServerlessCluster;
-  public readonly deviceDb: ITable;
-  public readonly imageDb: ITable;
+  public readonly eventsDb: ServerlessCluster;
+  public readonly devicesDb: ITable;
+  public readonly imagesDb: ITable;
 
   constructor(scope: Construct, id: string, props?: StackProps){
     super(scope, id, props);
@@ -53,9 +53,9 @@ export class DatabaseStack extends Stack{
     });
 
     /* Assign Variables */
-    this.eventDb = cluster;
-    this.deviceDb = dvcDb;
-    this.imageDb = imgDb;
+    this.eventsDb = cluster;
+    this.devicesDb = dvcDb;
+    this.imagesDb = imgDb;
 
 
   }

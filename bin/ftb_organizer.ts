@@ -3,7 +3,11 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { FtbOrganizerStack } from '../lib/ftb_organizer-stack';
 import { GatewayStack } from '../lib/infra/stacks/apis/GatewayStack';
-import { DeviceApiStack } from '../lib/infra/stacks/apis/DeviceApiStack';
+import { DevicesApiStack } from '../lib/infra/stacks/apis/DevicesApiStack';
+import { DatabaseStack } from '../lib/infra/stacks/data/DatabaseStack';
+import { DevicesLambdaStack } from '../lib/infra/stacks/lambdas/DevicesLambdaStack';
+import { EventsLambdaStack } from '../lib/infra/stacks/lambdas/EventsLambdaStack';
+import { ImagesLambdaStack } from '../lib/infra/stacks/lambdas/ImagesLambdaStack';
 
 const app = new cdk.App();
 // new FtbOrganizerStack(app, 'FtbOrganizerStack', {
@@ -26,8 +30,13 @@ const app = new cdk.App();
 const gatewayStack = new GatewayStack(app, 'GatewayStack');
 
 /* Database Definition */
+const databaseStack = new DatabaseStack(app, 'DatabaseStack');
 
 /* Lambda Definition */
+const devicesLambda = new DevicesLambdaStack(app, 'DeviceLambdaStack', {db: databaseStack.devicesDb});
+const eventsLambda = new EventsLambdaStack(app, 'EventsLambdaStack', {db: databaseStack.eventsDb});
+const imagesLambda = new ImagesLambdaStack(app, 'ImagesLambdaStack', {db: databaseStack.imagesDb});
+
 
 /* Api Definition */
-// new DeviceApiStack(app, 'DeviceApiStack', {lambdaIntegration: , restApi: gatewayStack.apiGateway });
+new DevicesApiStack(app, 'DeviceApiStack', {lambdaIntegration: devicesLambda.lambdaIntegration , restApi: gatewayStack.apiGateway });

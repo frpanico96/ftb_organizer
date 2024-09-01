@@ -12,22 +12,24 @@ import * as path from 'path';
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
 import { LambdaIntegration } from "aws-cdk-lib/aws-apigateway";
 
-export class DeviceLambdaStack extends LambdaStack{
+export class ImagesLambdaStack extends LambdaStack{
 
   constructor(scope: Construct, id: string, props: LambdaStackProps){
     super(scope, id, props);
 
 
-    const dbEvents: ITable = props.db as ITable;
+    const dbImages: ITable = props.db as ITable;
 
     const func = new NodejsFunction(this, 'DeviceLambda', {
       runtime: Runtime.NODEJS_20_X,
       handler: 'handler',
-      entry: path.join(__dirname, '..', '..', '..', 'src','deviceLambda','handler.ts'),
+      entry: path.join(__dirname, '..', '..', '..', 'src','imagesLambda','handler.ts'),
       environment: {
-        TABLE_NAME: dbEvents.tableName,
+        TABLE_NAME: dbImages.tableName,
       }
     });
+
+    dbImages.grantReadWriteData(func);
 
 
     this.lambdaIntegration = new LambdaIntegration(func);

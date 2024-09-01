@@ -7,7 +7,7 @@ import { Stack } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { ApiStackProps } from "../../../interfaces/ApiStackInterface";
 
-export class DeviceApiStack extends Stack {
+export class DevicesApiStack extends Stack {
 
   constructor(scope: Construct, id: string, props: ApiStackProps){
     super(scope, id, props);
