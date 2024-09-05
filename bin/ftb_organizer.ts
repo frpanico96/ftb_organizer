@@ -34,8 +34,8 @@ const databaseStack = new DatabaseStack(app, 'DatabaseStack');
 
 /* Lambda Definition */
 const devicesLambda = new DevicesLambdaStack(app, 'DeviceLambdaStack', {db: databaseStack.devicesDb});
-const eventsLambda = new EventsLambdaStack(app, 'EventsLambdaStack', {db: databaseStack.eventsDb});
-const imagesLambda = new ImagesLambdaStack(app, 'ImagesLambdaStack', {db: databaseStack.imagesDb});
+//const eventsLambda = new EventsLambdaStack(app, 'EventsLambdaStack', {db: databaseStack.eventsDb});
+//const imagesLambda = new ImagesLambdaStack(app, 'ImagesLambdaStack', {db: databaseStack.imagesDb});
 
 
 /* Api Definition */

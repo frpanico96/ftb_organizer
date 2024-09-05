@@ -19,27 +19,27 @@ export class DatabaseStack extends Stack{
     super(scope, id, props);
 
     /* Aurora Serverless Cluster */
-    const dbSecret: DatabaseSecret = new DatabaseSecret(this, 'AuroraSecret',{
-      username: 'admin',
-    });
+    // const dbSecret: DatabaseSecret = new DatabaseSecret(this, 'AuroraSecret',{
+    //   username: 'admin',
+    // });
 
-    const cluster: ServerlessCluster = new ServerlessCluster(this, 'AuroraCluster', {
-      engine: DatabaseClusterEngine.AURORA_MYSQL,
-      credentials: Credentials.fromSecret(dbSecret),
-      clusterIdentifier: 'organizer-aurora-cluster',
-      defaultDatabaseName: 'event-database',
-      enableDataApi: true,
-      scaling: {
-        autoPause: Duration.minutes(10),
-        minCapacity: 2,
-        maxCapacity: 16,
-      },
-    });
+    // const cluster: ServerlessCluster = new ServerlessCluster(this, 'AuroraCluster', {
+    //   engine: DatabaseClusterEngine.AURORA_MYSQL,
+    //   credentials: {username: 'admin'},
+    //   clusterIdentifier: 'organizer-aurora-cluster',
+    //   defaultDatabaseName: 'event-database',
+    //   enableDataApi: true,
+    //   scaling: {
+    //     autoPause: Duration.minutes(10),
+    //     minCapacity: 2,
+    //     maxCapacity: 16,
+    //   },
+    // });
 
     /* Device DynamoDB Table*/
     const dvcDb: ITable = new Table(this, 'DeviceTable', {
       partitionKey: {
-        name: 'device',
+        name: 'device_id',
         type: AttributeType.STRING,
       },
     });
@@ -53,7 +53,7 @@ export class DatabaseStack extends Stack{
     });
 
     /* Assign Variables */
-    this.eventsDb = cluster;
+    //this.eventsDb = cluster;
     this.devicesDb = dvcDb;
     this.imagesDb = imgDb;
 
