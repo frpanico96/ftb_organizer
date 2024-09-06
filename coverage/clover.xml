@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1725629446295" clover="3.2.0">
-  <project timestamp="1725629446295" name="All files">
-    <metrics statements="56" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0" elements="65" coveredelements="0" complexity="0" loc="56" ncloc="56" packages="3" files="7" classes="7"/>
-    <package name="apis">
+<coverage generated="1725629673816" clover="3.2.0">
+  <project timestamp="1725629673816" name="All files">
+    <metrics statements="94" coveredstatements="28" conditionals="11" coveredconditionals="4" methods="10" coveredmethods="2" elements="115" coveredelements="34" complexity="0" loc="94" ncloc="94" packages="6" files="10" classes="10"/>
+    <package name="infra.stacks.apis">
       <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="DevicesApiStack.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/infra/stacks/apis/DevicesApiStack.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -22,7 +22,7 @@
         <line num="19" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="data">
+    <package name="infra.stacks.data">
       <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="DatabaseStack.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/infra/stacks/data/DatabaseStack.ts">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -36,7 +36,7 @@
         <line num="58" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="lambdas">
+    <package name="infra.stacks.lambdas">
       <metrics statements="37" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="DevicesLambdaStack.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/infra/stacks/lambdas/DevicesLambdaStack.ts">
         <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -86,6 +86,62 @@
         <line num="7" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.devicesLambda">
+      <metrics statements="10" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="handler.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/src/devicesLambda/handler.ts">
+        <metrics statements="10" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.devicesLambda.core">
+      <metrics statements="27" coveredstatements="21" conditionals="7" coveredconditionals="3" methods="2" coveredmethods="1"/>
+      <file name="GetDevice.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/src/devicesLambda/core/GetDevice.ts">
+        <metrics statements="27" coveredstatements="21" conditionals="7" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="34" count="1" type="cond" truecount="2" falsecount="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="dto.ts" path="/Users/francescopanico/Desktop/Francesco/Vari/Projects/FTB_Organizer/backend/ftb_organizer/lib/src/utils/dto.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
       </file>
     </package>
   </project>

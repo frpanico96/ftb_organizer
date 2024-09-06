@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
   collectCoverage: true,
   collectCoverageFrom: [
     baseDir + 'infra/**/*.ts',
-    baseTestDir + 'src/**/**/*.ts',
+    baseDir + 'src/**/*.ts',
   ]
 }
 
