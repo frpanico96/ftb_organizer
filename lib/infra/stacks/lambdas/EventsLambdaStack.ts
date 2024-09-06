@@ -1,6 +1,6 @@
 import { Construct } from "constructs";
 import { LambdaStack } from "./LambdaStack";
-import { LambdaStackProps } from "../../../interfaces/LambdaStackInterface";
+import { LambdaStackProps } from "../../interfaces/LambdaStackInterface";
 import { ServerlessCluster } from "aws-cdk-lib/aws-rds";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Runtime } from "aws-cdk-lib/aws-lambda";

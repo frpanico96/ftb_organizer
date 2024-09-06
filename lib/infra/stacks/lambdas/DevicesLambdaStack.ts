@@ -4,7 +4,7 @@
  * 
  */
 import { Construct } from "constructs";
-import { LambdaStackProps } from "../../../interfaces/LambdaStackInterface";
+import { LambdaStackProps } from "../../interfaces/LambdaStackInterface";
 import { LambdaStack } from "./LambdaStack";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Runtime } from "aws-cdk-lib/aws-lambda";

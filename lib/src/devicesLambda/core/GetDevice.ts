@@ -1,8 +1,8 @@
 import { DynamoDBClient, GetItemCommand, GetItemCommandInput, GetItemCommandOutput, PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { BodyResponse } from "../../utils/interfaces/types";
-import { DeviceDto } from "../../utils/interfaces/dto";
+import { BodyResponse } from "../../utils/interfaces";
+import { DeviceDto } from "../../utils/dto";
 
 /**
  * 
@@ -44,6 +44,8 @@ export const getDevice: Function = async (ddbClient: DynamoDBClient, event: APIG
     const getCommand: GetItemCommand = new GetItemCommand(getCommandInput);
 
     const getDevice: GetItemCommandOutput = await ddbClient.send(getCommand);
+
+    console.log('GetDevice', getDevice);
 
     if(getDevice.Item){
       const device = unmarshall(getDevice.Item);

@@ -9,12 +9,12 @@ const config: Config.InitialOptions = {
   testEnvironment: 'node',
   testMatch: [
     baseTestDir + 'infra/**/*test.ts',
-    baseDir + 'src/**/*test.ts',
+    baseTestDir + 'src/**/*test.ts',
   ],
   collectCoverage: true,
   collectCoverageFrom: [
     baseDir + 'infra/**/*.ts',
-    baseTestDir + 'src/**/*.ts',
+    baseTestDir + 'src/**/**/*.ts',
   ]
 }
 
