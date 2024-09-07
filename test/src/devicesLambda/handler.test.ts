@@ -1,5 +1,4 @@
-import { DynamoDBClient} from "@aws-sdk/client-dynamodb"
-import { send } from "process"
+
 import { DeviceDto } from "../../../lib/src/utils/dto"
 import { handler } from "../../../lib/src/devicesLambda/handler"
 import { APIGatewayProxyResult } from "aws-lambda"
@@ -22,16 +21,13 @@ jest.mock('@aws-sdk/client-dynamodb', () => ({
 
 describe('Device handler suite', () => {
 
-  let dynamoDB: DynamoDBClient = new DynamoDBClient();
-
   let evt = {
     queryStringParameters: {},
     httpMethod: '',
   }
 
-  beforeEach(() => {
-    dynamoDB = new DynamoDBClient();
-  })
+  // beforeEach(() => {
+  // })
 
   afterEach(() => {
     jest.clearAllMocks();
