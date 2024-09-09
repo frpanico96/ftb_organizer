@@ -47,6 +47,21 @@ describe('Device handler suite', () => {
     expect(result.statusCode).toBe(200);
     expect(result.body).toContain('device');
 
-  })
+  });
+
+  it('unimplementd method', async () => {
+
+    evt.httpMethod = 'TEST';
+
+    const result: APIGatewayProxyResult = await handler(evt, {} as any, () => {});
+
+    console.log(result);
+
+    expect(result.statusCode).toBe(502);
+    expect(result.body).toContain('Unimplemented');
+
+  });
+
+  
 
 });
