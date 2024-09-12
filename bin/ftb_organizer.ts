@@ -8,6 +8,9 @@ import { DatabaseStack } from '../lib/infra/stacks/data/DatabaseStack';
 import { DevicesLambdaStack } from '../lib/infra/stacks/lambdas/DevicesLambdaStack';
 import { EventsLambdaStack } from '../lib/infra/stacks/lambdas/EventsLambdaStack';
 import { ImagesLambdaStack } from '../lib/infra/stacks/lambdas/ImagesLambdaStack';
+import { DeviceDbStack } from '../lib/infra/stacks/data/DevicesDbStack';
+import { EventsDbStack } from '../lib/infra/stacks/data/EventsDbStack';
+import { ImagesDbStack } from '../lib/infra/stacks/data/ImagesDbStack';
 
 const app = new cdk.App();
 // new FtbOrganizerStack(app, 'FtbOrganizerStack', {
@@ -30,10 +33,13 @@ const app = new cdk.App();
 const gatewayStack = new GatewayStack(app, 'GatewayStack');
 
 /* Database Definition */
-const databaseStack = new DatabaseStack(app, 'DatabaseStack');
+const devicesDb = new DeviceDbStack(app, 'DevicesDbStack');
+const eventsDb = new EventsDbStack(app, 'EventsDbStack');
+const imagesDb = new ImagesDbStack(app, 'ImagesDbStack')
+
 
 /* Lambda Definition */
-const devicesLambda = new DevicesLambdaStack(app, 'DeviceLambdaStack', {db: databaseStack.devicesDb});
+const devicesLambda = new DevicesLambdaStack(app, 'DeviceLambdaStack', {db: devicesDb.resourceDb});
 //const eventsLambda = new EventsLambdaStack(app, 'EventsLambdaStack', {db: databaseStack.eventsDb});
 //const imagesLambda = new ImagesLambdaStack(app, 'ImagesLambdaStack', {db: databaseStack.imagesDb});
 

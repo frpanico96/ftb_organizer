@@ -7,6 +7,7 @@ import { Runtime } from "aws-cdk-lib/aws-lambda";
 import * as path from 'path';
 import { Duration } from "aws-cdk-lib";
 import { LambdaIntegration } from "aws-cdk-lib/aws-apigateway";
+import { ITable } from "aws-cdk-lib/aws-dynamodb";
 
 /**
  * 
@@ -20,7 +21,7 @@ export class EventsLambdaStack extends LambdaStack{
 
 
 
-    const dbEvt: ServerlessCluster = props.db as ServerlessCluster;
+    const dbEvt: ITable = props.db as ITable;
 
 
     const func = new NodejsFunction(this, 'EventsLambda', {
@@ -28,14 +29,13 @@ export class EventsLambdaStack extends LambdaStack{
       handler: 'handler',
       entry: path.join(__dirname, '..', '..', '..', 'src','eventsLambda','handler.ts'),
       environment: {
-        CLUSTER_ARN: dbEvt.clusterArn,
-        SECRET_ARN: dbEvt.secret?.secretArn ?? '',
+        TABLE_NAME: dbEvt.tableName,
       },
       timeout: Duration.seconds(30),
     });
 
 
-    dbEvt.grantDataApiAccess(func);
+    dbEvt.grantReadWriteData(func);
 
     this.lambdaIntegration = new LambdaIntegration(func);
 
