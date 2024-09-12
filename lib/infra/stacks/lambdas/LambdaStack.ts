@@ -8,8 +8,9 @@ import { Stack } from "aws-cdk-lib";
 import { LambdaIntegration } from "aws-cdk-lib/aws-apigateway";
 import { Construct } from "constructs";
 import { LambdaStackProps } from "../../interfaces/LambdaStackInterface";
+import { BaseStack } from "../../BaseStack";
 
-export class LambdaStack extends Stack{
+export class LambdaStack extends BaseStack{
   public lambdaIntegration: LambdaIntegration;
 
   constructor(scope: Construct, id: string, props: LambdaStackProps){
