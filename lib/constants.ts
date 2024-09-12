@@ -4,5 +4,8 @@ dotenv.config();
 
 
 export const GLOBALS = {
-  AWS_REGION: process.env.AWS_REGION ?? 'us-west-1',
+  AWS_REGION: process.env.AWS_REGION || 'us-west-1',
 }
+
+
+console.log('Globals', GLOBALS);

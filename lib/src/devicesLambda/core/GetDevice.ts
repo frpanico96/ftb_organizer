@@ -66,7 +66,7 @@ export const getDevice: Function = async (ddbClient: DynamoDBClient, event: APIG
 
       const device: PutItemCommandOutput = await ddbClient.send(putCommand)
 
-      bodyRes.message = JSON.stringify({device: device});
+      bodyRes.message = JSON.stringify({device: newDevice});
 
     }
 
